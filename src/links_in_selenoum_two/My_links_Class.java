@@ -1,6 +1,8 @@
 package links_in_selenoum_two;
 
+import java.util.Iterator;
 import java.util.List;
+import java.util.Set;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
@@ -40,31 +42,22 @@ public class My_links_Class {
 //		}
 
 //		 5- open the links in separated tabs (this will pass )
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-for (int i = 0; i < myfootertwo.findElements(By.tagName("a")).size(); i++) {
-String openLink = Keys.chord(Keys.CONTROL, Keys.ENTER);
-myfootertwo.findElements(By.tagName("a")).get(i).sendKeys(openLink);
 
+//for (int i = 0; i < myfootertwo.findElements(By.tagName("a")).size(); i++) {
+//String openLink = Keys.chord(Keys.CONTROL, Keys.ENTER);
+//myfootertwo.findElements(By.tagName("a")).get(i).sendKeys(openLink);
+//
+//		}
+
+		// 6- get the title of each tab
+
+		Set<String> mytabs = driver.getWindowHandles();
+
+		Iterator<String> tabView = mytabs.iterator();
+
+		while (tabView.hasNext()) {
+			driver.switchTo().window(tabView.next());
+			System.out.println(driver.getTitle());
 		}
 
 	}
